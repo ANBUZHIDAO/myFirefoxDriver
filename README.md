@@ -23,6 +23,8 @@ Selenium Webdriver重新使用已打开的浏览器实例 适用于Selenium3.8.1
 
 # 测试例子
 下面的例子是我在SoapUI中使用groovy脚本执行的，如以其他方式使用请勿直接照搬。
+用例1是正常情况下使用SeleniumWebDriver的情况。正常创建FirefoxDriver后不退出，不关闭浏览器。
+然后参考用例2用例3，创建myFirefoxDriver即可继续使用已打开的浏览器
 
 ## 用例1
 ```groovy
