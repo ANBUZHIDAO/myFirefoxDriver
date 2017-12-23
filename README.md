@@ -2,7 +2,7 @@
 Selenium Webdriver重新使用已打开的浏览器实例 适用于Selenium3.8.1  Firefox57 更新于2017-12-23
 
 # Selenium Webdriver 工作原理简介
-    1）Selenium代码调用API实际上根据 The WebDriver Wire Protocol 发送不同的Http Request 到 WebdriverServer。
+    1）Selenium代码调用API实际上根据 The WebDriver Wire Protocol 发送不同的HttpRequest 到 WebdriverServer。
     IE 是 IEDriverServer.exe 
     Chrome是ChromerDriver，下载地址： https://sites.google.com/a/chromium.org/chromedriver/downloads 
     Firefox之前老版本是以插件的形式，直接在selenium-server-standalone-XXX.jar里了： 
@@ -12,18 +12,24 @@ Selenium Webdriver重新使用已打开的浏览器实例 适用于Selenium3.8.1
 
     WebDriver协议是RESTful风格的。W3C Webdriver标准协议内容：http://www.w3.org/TR/webdriver/
 
-    2）WebdriverServer接收到Http Request之后，根据不同的命令在操作系统层面去触发浏览器的”native事件“， 模拟操作浏览器。WebdriverServer将操作结果Http Response返回给代码调用的客户端。
+    2）WebdriverServer接收到HttpRequest之后，根据不同的命令在操作系统层面去触发浏览器的”native事件“， 
+    模拟操作浏览器。WebdriverServer将操作结果Http Response返回给代码调用的客户端。
 
-    可以参考 我之前在CSDN写的使用代理可以看到协议具体内容： http://blog.csdn.net/wwwqjpcom/article/details/51232302
+    可以参考 我之前在CSDN写的使用代理可以看到协议具体内容： 
+    http://blog.csdn.net/wwwqjpcom/article/details/51232302
 
 # 如何实现使用已打开的浏览器
-    想要实现Webdriver重新使用已打开的浏览器实例。根据原理，需要WebDriverServer的地址、一个可用的已有Session。
-    因此我实现了myFirefoxDriver，将一个已打开的WebDriver实例的WebDriverServer地址，SessionId保存起来，然后用于初始化myFirefoxDriver。
+    想要实现Webdriver重新使用已打开的浏览器实例。
+    根据原理,需要WebDriverServer的地址、一个可用的已有Session。
+    
+    据此实现了myFirefoxDriver。
+    使用中需要将一个已打开的WebDriver实例的WebDriverServer地址，SessionId保存起来，
+    然后用于初始化myFirefoxDriver。
     另外执行JavaScript需要判断Capabilities，因此加了一点在myFirefoxDriver中设置Capabilities的逻辑。
 
 # 测试例子
-下面的例子是我在SoapUI中使用groovy脚本执行的，如以其他方式使用请勿直接照搬。
-用例1是正常情况下使用SeleniumWebDriver的情况。正常创建FirefoxDriver后不退出，不关闭浏览器。
+下面的例子是我在SoapUI中使用groovy脚本执行的，如以其他方式使用请勿直接照搬。  
+用例1是正常情况下使用SeleniumWebDriver的情况。正常创建FirefoxDriver后不退出，不关闭浏览器。  
 然后参考用例2用例3，创建myFirefoxDriver即可继续使用已打开的浏览器
 
 ## 用例1
