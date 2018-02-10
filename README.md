@@ -149,19 +149,19 @@ catch(Exception e)
     的方式来启动Firefox的话，执行完退出后，进程关闭。原来的WebdriverServer关闭服务，再类似Java的MyFirefoxDriver的方式就不通了。
 
     因此可以采用下面的方式：
-    1）先双击 geckodriver.exe 启动 geckodriver。启动后显示：
-    1518266867250   geckodriver     INFO    geckodriver 0.19.1
-    1518266867257   geckodriver     INFO    Listening on `127.0.0.1:4444`
-    2) 按如下方式启动WebDriver
+1) 先双击 geckodriver.exe 启动 geckodriver。启动后显示类似如下内容：  
+
+        1518266867250   geckodriver     INFO    geckodriver 0.19.1   
+        1518266867257   geckodriver     INFO    Listening on `127.0.0.1:4444`
+2) 按如下方式启动WebDriver 具体可参考 [testGecko.py](/python/testGecko.py)
 ```python
     driver = webdriver.remote.webdriver.WebDriver(command_executor="http://127.0.0.1:4444",
     desired_capabilities=DesiredCapabilities.FIREFOX) 
     driver.get('http://www.baidu.com/')
 ```
-    
-    具体可参考 [testGecko.py](/python/testGecko.py)
 
-    执行完后不关闭浏览器以及geckodriver。
+
+   执行完后不关闭浏览器以及geckodriver。
     并将必要的参数保存到某个地方，比如例子中的params.data。
     代码如下：
 ```
@@ -170,9 +170,8 @@ catch(Exception e)
     pickle.dump(params, f)
     f.close()
 ``` 
-    3）使用Python实现的myDriver。
-    具体参考[testGecko.py](/python/testMyFirefox2.py)
-    按如下方式启动
+3) 使用Python实现的myDriver，按如下方式启动。具体参考[testGecko.py](/python/testMyFirefox2.py)
+    
 ```python
     f = open("params.data", 'rb')
     # 从文件中载入对象
