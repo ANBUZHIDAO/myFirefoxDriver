@@ -159,7 +159,7 @@ catch(Exception e)
     driver.get('http://www.baidu.com/')
 ```
     
-    具体可参考 `[testGecko.py](./python/testGecko.py)`
+    具体可参考 [testGecko.py](/python/testGecko.py)
 
     执行完后不关闭浏览器以及geckodriver。
     并将必要的参数保存到某个地方，比如例子中的params.data。
@@ -171,7 +171,7 @@ catch(Exception e)
     f.close()
 ``` 
     3）使用Python实现的myDriver。
-    具体参考`[testGecko.py](./python/testMyFirefox2.py)`
+    具体参考[testGecko.py](/python/testMyFirefox2.py)
     按如下方式启动
 ```python
     f = open("params.data", 'rb')
