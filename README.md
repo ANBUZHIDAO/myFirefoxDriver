@@ -170,7 +170,7 @@ catch(Exception e)
     pickle.dump(params, f)
     f.close()
 ``` 
-3) 使用Python实现的myDriver，按如下方式启动。具体参考[testGecko.py](/python/testMyFirefox2.py)
+3) 使用Python实现的myDriver，按如下方式启动。具体参考[testMyFirefox2.py](/python/testMyFirefox2.py)
     
 ```python
     f = open("params.data", 'rb')
