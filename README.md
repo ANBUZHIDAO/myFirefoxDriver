@@ -1,4 +1,5 @@
 # myFirefoxDriver
+最新更新了一下，可参考 [myReuseWebDriver](https://github.com/ANBUZHIDAO/myReuseWebDriver "ReuseWebDriver")，简单测试过Google Chrome 71， Firefox 64，IE11
 Selenium Webdriver重新使用已打开的浏览器实例 适用于Selenium3.8.1  Firefox57 更新于2017-12-23
 
 # Selenium Webdriver 工作原理简介
